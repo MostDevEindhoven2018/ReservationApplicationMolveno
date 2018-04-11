@@ -8,5 +8,8 @@ namespace Data
 {
     class Guest
     {
+        public string Name;
+        public string TelephoneNumber;
+        public string EmailAddress;
     }
 }
