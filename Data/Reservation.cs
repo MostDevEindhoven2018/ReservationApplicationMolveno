@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data
+namespace Data 
 {
     class Reservation
     {
         int ID;
         Table Table;
         Guest Guest;
+        int PartySize;
         DateTime StartTime;
         DateTime EndTime;
     }
