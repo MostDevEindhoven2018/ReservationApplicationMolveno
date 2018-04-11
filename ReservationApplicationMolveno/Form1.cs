@@ -92,8 +92,10 @@ namespace ReservationApplicationMolveno
 
         private void inputSendReservation_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
+
+        
 
         private void inputBeginTimeHour_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -103,6 +105,11 @@ namespace ReservationApplicationMolveno
         private void inputNumberOfGuests_SelectedIndexChanged(object sender, EventArgs e)
         {            
             
+        }
+
+        private void inputGuestEmail_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

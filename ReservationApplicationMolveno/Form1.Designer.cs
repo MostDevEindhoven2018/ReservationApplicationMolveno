@@ -36,7 +36,6 @@
             this.labelGuestPhoneNumber = new System.Windows.Forms.TextBox();
             this.labelGuestEmail = new System.Windows.Forms.TextBox();
             this.labelCommentsGuest = new System.Windows.Forms.TextBox();
-            this.inputDateReservation = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.inputNameGuest = new System.Windows.Forms.TextBox();
             this.inputGuestPhoneNumber = new System.Windows.Forms.TextBox();
@@ -49,6 +48,7 @@
             this.inputBeginTimeHour = new System.Windows.Forms.ComboBox();
             this.inputBeginTimeMinute = new System.Windows.Forms.ComboBox();
             this.labelCommentOwner = new System.Windows.Forms.TextBox();
+            this.inputDateReservation = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // labelDateReservation
@@ -123,15 +123,6 @@
             this.labelCommentsGuest.TabIndex = 6;
             this.labelCommentsGuest.Text = "Comments";
             // 
-            // inputDateReservation
-            // 
-            this.inputDateReservation.BackColor = System.Drawing.SystemColors.Control;
-            this.inputDateReservation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.inputDateReservation.Location = new System.Drawing.Point(206, 63);
-            this.inputDateReservation.Name = "inputDateReservation";
-            this.inputDateReservation.Size = new System.Drawing.Size(116, 22);
-            this.inputDateReservation.TabIndex = 7;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -158,6 +149,7 @@
             this.inputGuestEmail.Name = "inputGuestEmail";
             this.inputGuestEmail.Size = new System.Drawing.Size(116, 22);
             this.inputGuestEmail.TabIndex = 11;
+            this.inputGuestEmail.TextChanged += new System.EventHandler(this.inputGuestEmail_TextChanged);
             // 
             // inputCommentGuest
             // 
@@ -239,11 +231,21 @@
             this.labelCommentOwner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.labelCommentOwner.TextChanged += new System.EventHandler(this.labelCommentOwner_TextChanged);
             // 
+            // inputDateReservation
+            // 
+            this.inputDateReservation.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.inputDateReservation.Location = new System.Drawing.Point(206, 63);
+            this.inputDateReservation.Name = "inputDateReservation";
+            this.inputDateReservation.Size = new System.Drawing.Size(116, 22);
+            this.inputDateReservation.TabIndex = 21;
+            this.inputDateReservation.Value = new System.DateTime(2018, 4, 11, 0, 0, 0, 0);
+            // 
             // formReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 483);
+            this.ClientSize = new System.Drawing.Size(385, 483);
+            this.Controls.Add(this.inputDateReservation);
             this.Controls.Add(this.labelCommentOwner);
             this.Controls.Add(this.inputBeginTimeMinute);
             this.Controls.Add(this.inputBeginTimeHour);
@@ -255,7 +257,6 @@
             this.Controls.Add(this.inputGuestEmail);
             this.Controls.Add(this.inputGuestPhoneNumber);
             this.Controls.Add(this.inputNameGuest);
-            this.Controls.Add(this.inputDateReservation);
             this.Controls.Add(this.labelCommentsGuest);
             this.Controls.Add(this.labelGuestEmail);
             this.Controls.Add(this.labelGuestPhoneNumber);
@@ -280,7 +281,6 @@
         private System.Windows.Forms.TextBox labelGuestPhoneNumber;
         private System.Windows.Forms.TextBox labelGuestEmail;
         private System.Windows.Forms.TextBox labelCommentsGuest;
-        private System.Windows.Forms.TextBox inputDateReservation;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox inputNameGuest;
         private System.Windows.Forms.TextBox inputGuestPhoneNumber;
@@ -293,6 +293,7 @@
         private System.Windows.Forms.ComboBox inputBeginTimeHour;
         private System.Windows.Forms.ComboBox inputBeginTimeMinute;
         private System.Windows.Forms.TextBox labelCommentOwner;
+        private System.Windows.Forms.DateTimePicker inputDateReservation;
     }
 }
 
