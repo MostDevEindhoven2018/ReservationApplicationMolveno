@@ -1,0 +1,10 @@
+C:\Users\irene\Downloads\ReservationApplicationMolveno-xj\ReservationApplicationMolveno\bin\Debug\ReservationApplicationMolveno.exe.config
+C:\Users\irene\Downloads\ReservationApplicationMolveno-xj\ReservationApplicationMolveno\bin\Debug\ReservationApplicationMolveno.exe
+C:\Users\irene\Downloads\ReservationApplicationMolveno-xj\ReservationApplicationMolveno\bin\Debug\ReservationApplicationMolveno.pdb
+C:\Users\irene\Downloads\ReservationApplicationMolveno-xj\ReservationApplicationMolveno\obj\Debug\ReservationApplicationMolveno.csprojResolveAssemblyReference.cache
+C:\Users\irene\Downloads\ReservationApplicationMolveno-xj\ReservationApplicationMolveno\obj\Debug\ReservationApplicationMolveno.formReservation.resources
+C:\Users\irene\Downloads\ReservationApplicationMolveno-xj\ReservationApplicationMolveno\obj\Debug\ReservationApplicationMolveno.Properties.Resources.resources
+C:\Users\irene\Downloads\ReservationApplicationMolveno-xj\ReservationApplicationMolveno\obj\Debug\ReservationApplicationMolveno.csproj.GenerateResource.cache
+C:\Users\irene\Downloads\ReservationApplicationMolveno-xj\ReservationApplicationMolveno\obj\Debug\ReservationApplicationMolveno.csproj.CoreCompileInputs.cache
+C:\Users\irene\Downloads\ReservationApplicationMolveno-xj\ReservationApplicationMolveno\obj\Debug\ReservationApplicationMolveno.exe
+C:\Users\irene\Downloads\ReservationApplicationMolveno-xj\ReservationApplicationMolveno\obj\Debug\ReservationApplicationMolveno.pdb
