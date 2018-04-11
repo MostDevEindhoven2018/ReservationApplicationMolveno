@@ -16,7 +16,7 @@ namespace ReservationApplicationMolveno
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formReservation());
+            Application.Run(new ReservationForm());
         }
     }
 }

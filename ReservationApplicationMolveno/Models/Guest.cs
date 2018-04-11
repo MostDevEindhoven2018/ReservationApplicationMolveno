@@ -4,12 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data
+namespace ReservationApplicationMolveno
 {
     public class Guest
     {
         public string Name { get; set; }
-        public string TelephoneNumber { get; set; }
-        public string EmailAddress { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
+
+        public Guest() { }
+
+        public Guest(string name, string phone, string email)
+        {
+            this.Name = name;
+            this.PhoneNumber = phone;
+            this.Email = email;
+        }
     }
 }
