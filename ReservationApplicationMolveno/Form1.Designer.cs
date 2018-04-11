@@ -55,20 +55,21 @@
             // 
             this.labelDateReservation.BackColor = System.Drawing.SystemColors.Control;
             this.labelDateReservation.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.labelDateReservation.Location = new System.Drawing.Point(59, 63);
+            this.labelDateReservation.Location = new System.Drawing.Point(44, 51);
+            this.labelDateReservation.Margin = new System.Windows.Forms.Padding(2);
             this.labelDateReservation.Name = "labelDateReservation";
-            this.labelDateReservation.Size = new System.Drawing.Size(114, 15);
+            this.labelDateReservation.Size = new System.Drawing.Size(86, 13);
             this.labelDateReservation.TabIndex = 0;
             this.labelDateReservation.Text = "Date";
-            this.labelDateReservation.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // labelNameGuest
             // 
             this.labelNameGuest.BackColor = System.Drawing.SystemColors.Control;
             this.labelNameGuest.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.labelNameGuest.Location = new System.Drawing.Point(59, 91);
+            this.labelNameGuest.Location = new System.Drawing.Point(44, 74);
+            this.labelNameGuest.Margin = new System.Windows.Forms.Padding(2);
             this.labelNameGuest.Name = "labelNameGuest";
-            this.labelNameGuest.Size = new System.Drawing.Size(114, 15);
+            this.labelNameGuest.Size = new System.Drawing.Size(86, 13);
             this.labelNameGuest.TabIndex = 1;
             this.labelNameGuest.Text = "Name";
             // 
@@ -76,20 +77,21 @@
             // 
             this.labelNumberOfGuests.BackColor = System.Drawing.SystemColors.Control;
             this.labelNumberOfGuests.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.labelNumberOfGuests.Location = new System.Drawing.Point(59, 119);
+            this.labelNumberOfGuests.Location = new System.Drawing.Point(44, 97);
+            this.labelNumberOfGuests.Margin = new System.Windows.Forms.Padding(2);
             this.labelNumberOfGuests.Name = "labelNumberOfGuests";
-            this.labelNumberOfGuests.Size = new System.Drawing.Size(114, 15);
+            this.labelNumberOfGuests.Size = new System.Drawing.Size(86, 13);
             this.labelNumberOfGuests.TabIndex = 2;
             this.labelNumberOfGuests.Text = "Number of guests";
-            this.labelNumberOfGuests.TextChanged += new System.EventHandler(this.labelNumberOfGuests_TextChanged);
             // 
             // labelBeginTime
             // 
             this.labelBeginTime.BackColor = System.Drawing.SystemColors.Control;
             this.labelBeginTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.labelBeginTime.Location = new System.Drawing.Point(59, 149);
+            this.labelBeginTime.Location = new System.Drawing.Point(44, 121);
+            this.labelBeginTime.Margin = new System.Windows.Forms.Padding(2);
             this.labelBeginTime.Name = "labelBeginTime";
-            this.labelBeginTime.Size = new System.Drawing.Size(114, 15);
+            this.labelBeginTime.Size = new System.Drawing.Size(86, 13);
             this.labelBeginTime.TabIndex = 3;
             this.labelBeginTime.Text = "Reservation time";
             // 
@@ -97,9 +99,10 @@
             // 
             this.labelGuestPhoneNumber.BackColor = System.Drawing.SystemColors.Control;
             this.labelGuestPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.labelGuestPhoneNumber.Location = new System.Drawing.Point(59, 179);
+            this.labelGuestPhoneNumber.Location = new System.Drawing.Point(44, 145);
+            this.labelGuestPhoneNumber.Margin = new System.Windows.Forms.Padding(2);
             this.labelGuestPhoneNumber.Name = "labelGuestPhoneNumber";
-            this.labelGuestPhoneNumber.Size = new System.Drawing.Size(114, 15);
+            this.labelGuestPhoneNumber.Size = new System.Drawing.Size(86, 13);
             this.labelGuestPhoneNumber.TabIndex = 4;
             this.labelGuestPhoneNumber.Text = "Phonenumber";
             // 
@@ -107,9 +110,10 @@
             // 
             this.labelGuestEmail.BackColor = System.Drawing.SystemColors.Control;
             this.labelGuestEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.labelGuestEmail.Location = new System.Drawing.Point(59, 207);
+            this.labelGuestEmail.Location = new System.Drawing.Point(44, 168);
+            this.labelGuestEmail.Margin = new System.Windows.Forms.Padding(2);
             this.labelGuestEmail.Name = "labelGuestEmail";
-            this.labelGuestEmail.Size = new System.Drawing.Size(114, 15);
+            this.labelGuestEmail.Size = new System.Drawing.Size(86, 13);
             this.labelGuestEmail.TabIndex = 5;
             this.labelGuestEmail.Text = "Email address";
             // 
@@ -117,9 +121,10 @@
             // 
             this.labelCommentsGuest.BackColor = System.Drawing.SystemColors.Control;
             this.labelCommentsGuest.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.labelCommentsGuest.Location = new System.Drawing.Point(59, 281);
+            this.labelCommentsGuest.Location = new System.Drawing.Point(44, 228);
+            this.labelCommentsGuest.Margin = new System.Windows.Forms.Padding(2);
             this.labelCommentsGuest.Name = "labelCommentsGuest";
-            this.labelCommentsGuest.Size = new System.Drawing.Size(114, 15);
+            this.labelCommentsGuest.Size = new System.Drawing.Size(86, 13);
             this.labelCommentsGuest.TabIndex = 6;
             this.labelCommentsGuest.Text = "Comments";
             // 
@@ -131,52 +136,55 @@
             // 
             // inputNameGuest
             // 
-            this.inputNameGuest.Location = new System.Drawing.Point(206, 91);
+            this.inputNameGuest.Location = new System.Drawing.Point(154, 74);
+            this.inputNameGuest.Margin = new System.Windows.Forms.Padding(2);
             this.inputNameGuest.Name = "inputNameGuest";
-            this.inputNameGuest.Size = new System.Drawing.Size(116, 22);
+            this.inputNameGuest.Size = new System.Drawing.Size(88, 20);
             this.inputNameGuest.TabIndex = 9;
             // 
             // inputGuestPhoneNumber
             // 
-            this.inputGuestPhoneNumber.Location = new System.Drawing.Point(206, 179);
+            this.inputGuestPhoneNumber.Location = new System.Drawing.Point(154, 145);
+            this.inputGuestPhoneNumber.Margin = new System.Windows.Forms.Padding(2);
             this.inputGuestPhoneNumber.Name = "inputGuestPhoneNumber";
-            this.inputGuestPhoneNumber.Size = new System.Drawing.Size(116, 22);
+            this.inputGuestPhoneNumber.Size = new System.Drawing.Size(88, 20);
             this.inputGuestPhoneNumber.TabIndex = 10;
             // 
             // inputGuestEmail
             // 
-            this.inputGuestEmail.Location = new System.Drawing.Point(206, 207);
+            this.inputGuestEmail.Location = new System.Drawing.Point(154, 168);
+            this.inputGuestEmail.Margin = new System.Windows.Forms.Padding(2);
             this.inputGuestEmail.Name = "inputGuestEmail";
-            this.inputGuestEmail.Size = new System.Drawing.Size(116, 22);
+            this.inputGuestEmail.Size = new System.Drawing.Size(88, 20);
             this.inputGuestEmail.TabIndex = 11;
-            this.inputGuestEmail.TextChanged += new System.EventHandler(this.inputGuestEmail_TextChanged);
             // 
             // inputCommentGuest
             // 
-            this.inputCommentGuest.Location = new System.Drawing.Point(59, 309);
+            this.inputCommentGuest.Location = new System.Drawing.Point(44, 251);
+            this.inputCommentGuest.Margin = new System.Windows.Forms.Padding(2);
             this.inputCommentGuest.Multiline = true;
             this.inputCommentGuest.Name = "inputCommentGuest";
-            this.inputCommentGuest.Size = new System.Drawing.Size(263, 50);
+            this.inputCommentGuest.Size = new System.Drawing.Size(198, 41);
             this.inputCommentGuest.TabIndex = 12;
-            this.inputCommentGuest.TextChanged += new System.EventHandler(this.inputComment_TextChanged);
             // 
             // inputSendReservation
             // 
             this.inputSendReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.inputSendReservation.Location = new System.Drawing.Point(222, 393);
+            this.inputSendReservation.Location = new System.Drawing.Point(166, 319);
+            this.inputSendReservation.Margin = new System.Windows.Forms.Padding(2);
             this.inputSendReservation.Name = "inputSendReservation";
-            this.inputSendReservation.Size = new System.Drawing.Size(100, 22);
+            this.inputSendReservation.Size = new System.Drawing.Size(76, 20);
             this.inputSendReservation.TabIndex = 13;
             this.inputSendReservation.Text = "Reserve";
             this.inputSendReservation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.inputSendReservation.TextChanged += new System.EventHandler(this.inputSendReservation_TextChanged);
             // 
             // inputOptionHidePrices
             // 
             this.inputOptionHidePrices.AutoSize = true;
-            this.inputOptionHidePrices.Location = new System.Drawing.Point(304, 236);
+            this.inputOptionHidePrices.Location = new System.Drawing.Point(228, 192);
+            this.inputOptionHidePrices.Margin = new System.Windows.Forms.Padding(2);
             this.inputOptionHidePrices.Name = "inputOptionHidePrices";
-            this.inputOptionHidePrices.Size = new System.Drawing.Size(18, 17);
+            this.inputOptionHidePrices.Size = new System.Drawing.Size(15, 14);
             this.inputOptionHidePrices.TabIndex = 14;
             this.inputOptionHidePrices.UseVisualStyleBackColor = true;
             // 
@@ -184,67 +192,69 @@
             // 
             this.labelOptionHidePrices.BackColor = System.Drawing.SystemColors.Control;
             this.labelOptionHidePrices.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.labelOptionHidePrices.Location = new System.Drawing.Point(59, 235);
+            this.labelOptionHidePrices.Location = new System.Drawing.Point(44, 191);
+            this.labelOptionHidePrices.Margin = new System.Windows.Forms.Padding(2);
             this.labelOptionHidePrices.Multiline = true;
             this.labelOptionHidePrices.Name = "labelOptionHidePrices";
-            this.labelOptionHidePrices.Size = new System.Drawing.Size(208, 40);
+            this.labelOptionHidePrices.Size = new System.Drawing.Size(156, 32);
             this.labelOptionHidePrices.TabIndex = 15;
             this.labelOptionHidePrices.Text = "Would you like to hide the prices from the menu?";
-            this.labelOptionHidePrices.TextChanged += new System.EventHandler(this.labelOptionHidePrices_TextChanged);
             // 
             // inputNumberOfGuests
             // 
             this.inputNumberOfGuests.FormattingEnabled = true;
-            this.inputNumberOfGuests.Location = new System.Drawing.Point(206, 119);
+            this.inputNumberOfGuests.Location = new System.Drawing.Point(154, 97);
+            this.inputNumberOfGuests.Margin = new System.Windows.Forms.Padding(2);
             this.inputNumberOfGuests.Name = "inputNumberOfGuests";
-            this.inputNumberOfGuests.Size = new System.Drawing.Size(116, 24);
+            this.inputNumberOfGuests.Size = new System.Drawing.Size(88, 21);
             this.inputNumberOfGuests.TabIndex = 16;
-            this.inputNumberOfGuests.SelectedIndexChanged += new System.EventHandler(this.inputNumberOfGuests_SelectedIndexChanged);
             // 
             // inputBeginTimeHour
             // 
             this.inputBeginTimeHour.FormattingEnabled = true;
-            this.inputBeginTimeHour.Location = new System.Drawing.Point(206, 149);
+            this.inputBeginTimeHour.Location = new System.Drawing.Point(154, 121);
+            this.inputBeginTimeHour.Margin = new System.Windows.Forms.Padding(2);
             this.inputBeginTimeHour.Name = "inputBeginTimeHour";
-            this.inputBeginTimeHour.Size = new System.Drawing.Size(50, 24);
+            this.inputBeginTimeHour.Size = new System.Drawing.Size(38, 21);
             this.inputBeginTimeHour.TabIndex = 17;
-            this.inputBeginTimeHour.SelectedIndexChanged += new System.EventHandler(this.inputBeginTimeHour_SelectedIndexChanged);
             // 
             // inputBeginTimeMinute
             // 
             this.inputBeginTimeMinute.FormattingEnabled = true;
-            this.inputBeginTimeMinute.Location = new System.Drawing.Point(272, 149);
+            this.inputBeginTimeMinute.Location = new System.Drawing.Point(204, 121);
+            this.inputBeginTimeMinute.Margin = new System.Windows.Forms.Padding(2);
             this.inputBeginTimeMinute.Name = "inputBeginTimeMinute";
-            this.inputBeginTimeMinute.Size = new System.Drawing.Size(50, 24);
+            this.inputBeginTimeMinute.Size = new System.Drawing.Size(38, 21);
             this.inputBeginTimeMinute.TabIndex = 18;
             // 
             // labelCommentOwner
             // 
             this.labelCommentOwner.BackColor = System.Drawing.SystemColors.Control;
             this.labelCommentOwner.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.labelCommentOwner.Location = new System.Drawing.Point(59, 434);
+            this.labelCommentOwner.Location = new System.Drawing.Point(44, 353);
+            this.labelCommentOwner.Margin = new System.Windows.Forms.Padding(2);
             this.labelCommentOwner.Multiline = true;
             this.labelCommentOwner.Name = "labelCommentOwner";
-            this.labelCommentOwner.Size = new System.Drawing.Size(263, 39);
+            this.labelCommentOwner.Size = new System.Drawing.Size(197, 32);
             this.labelCommentOwner.TabIndex = 19;
             this.labelCommentOwner.Text = "Feel free to contact us on 000-0000000 if you experience any problems.";
             this.labelCommentOwner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.labelCommentOwner.TextChanged += new System.EventHandler(this.labelCommentOwner_TextChanged);
             // 
             // inputDateReservation
             // 
             this.inputDateReservation.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.inputDateReservation.Location = new System.Drawing.Point(206, 63);
+            this.inputDateReservation.Location = new System.Drawing.Point(154, 51);
+            this.inputDateReservation.Margin = new System.Windows.Forms.Padding(2);
             this.inputDateReservation.Name = "inputDateReservation";
-            this.inputDateReservation.Size = new System.Drawing.Size(116, 22);
+            this.inputDateReservation.Size = new System.Drawing.Size(88, 20);
             this.inputDateReservation.TabIndex = 21;
             this.inputDateReservation.Value = new System.DateTime(2018, 4, 11, 0, 0, 0, 0);
             // 
             // formReservation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 483);
+            this.ClientSize = new System.Drawing.Size(289, 392);
             this.Controls.Add(this.inputDateReservation);
             this.Controls.Add(this.labelCommentOwner);
             this.Controls.Add(this.inputBeginTimeMinute);
@@ -264,9 +274,9 @@
             this.Controls.Add(this.labelNumberOfGuests);
             this.Controls.Add(this.labelNameGuest);
             this.Controls.Add(this.labelDateReservation);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "formReservation";
             this.Text = "Reservation Molveno Lake Resort";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

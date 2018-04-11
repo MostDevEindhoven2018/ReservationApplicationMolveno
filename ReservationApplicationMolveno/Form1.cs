@@ -59,57 +59,5 @@ namespace ReservationApplicationMolveno
 
 
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void inputComment_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelNumberOfGuests_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelOptionHidePrices_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelCommentOwner_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void inputSendReservation_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        
-
-        private void inputBeginTimeHour_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void inputNumberOfGuests_SelectedIndexChanged(object sender, EventArgs e)
-        {            
-            
-        }
-
-        private void inputGuestEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
