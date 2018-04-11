@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    class Table
+    public class Table
     {
-        int ID;                     // 
-        int TableSize;              // Amount of people that can be seated at this table
+        public int ID;                     // 
+        public int TableSize;              // Amount of people that can be seated at this table
+
+        public Table(int id, int tableSize)
+        {
+            ID = id;
+            TableSize = tableSize;
+        }
         
     }
 }

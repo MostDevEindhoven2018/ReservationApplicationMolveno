@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,18 @@ namespace ReservationApplicationMolveno
 {
     public partial class formReservation : Form
     {
+        
         public formReservation()
         {
             InitializeComponent();
+
+
+
+            ReservationLogic _ReservationLogic = new ReservationLogic();
+            _ReservationLogic.CreateDB();
+            _ReservationLogic.AddToDB();
+
+
 
             // Adjusted from https://social.msdn.microsoft.com/Forums/en-US/03255b04-536e-4905-85cb-d28a5f851828/combobox-items-addrange-from-0-to-c?forum=csharplanguage
             // Adds 1 till 10 to the combobox with number of guests
