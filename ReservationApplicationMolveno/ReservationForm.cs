@@ -19,7 +19,9 @@ namespace ReservationApplicationMolveno
         {
             InitializeComponent();
 
-
+	    ReservationLogic _ReservationLogic = new ReservationLogic();
+            _ReservationLogic.CreateDB();
+            _ReservationLogic.AddToDB();
 
             // Adds 0 till 23 hours to the combobox with the reservation time
             for (int i = 0; i <= 23; i++)
@@ -67,8 +69,7 @@ namespace ReservationApplicationMolveno
                 DateTime a_date = new DateTime(year, month, day, hour, minutes, 0);
                 return a_date;
             }
-            catch
-            {
+            catch           {
                 return new DateTime(1970, 1, 1, 0, 0, 0);
             }
         }
