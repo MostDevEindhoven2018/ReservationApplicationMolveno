@@ -6,13 +6,23 @@ using System.Threading.Tasks;
 
 namespace Data 
 {
-    class Reservation
+    public class Reservation
     {
-        int ID;
-        Table Table;
-        Guest Guest;
-        int PartySize;
-        DateTime StartTime;
-        DateTime EndTime;
+        public int ID { get; set; }
+        public Table Table {  get; set; }
+        public Guest Guest {  get; set; }
+        public int PartySize {  get; set; }
+        public DateTime StartTime {  get; set; }
+        public DateTime EndTime {  get; set; }
+
+        public Reservation(int id, Table table, Guest guest, int partySize, DateTime startTime, DateTime endTime)
+        {
+            ID = id;
+            Table = table;
+            Guest = guest;
+            PartySize = partySize;
+            StartTime = startTime;
+            EndTime = endTime;
+        }
     }
 }
