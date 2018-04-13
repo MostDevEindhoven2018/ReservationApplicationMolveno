@@ -17,6 +17,8 @@ namespace Data
             Table,
             Guest
         }
+
+
         public void AddToDB(Reservation reservation)
         {
             // convert all the information from the reservation class to single line strings. Tab deliminated.
@@ -57,14 +59,14 @@ namespace Data
 
 
 
-        public List<string> ReadDB()
+        public List<string> ReadDB(FilePaths fp)
         {
             List<string> DBStringList = new List<string>();
 
             try
             {
                 string dirPath = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
-                string filePath = Path.Combine(dirPath, "RudimentaryDB.csv");
+                string filePath = GetFilePath(fp);
 
 
 
@@ -145,12 +147,12 @@ namespace Data
         }
 
 
-        private string GetFilePath(FilePaths filePaths)
+        private string GetFilePath(FilePaths fp)
         {
             string dirPath = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
             string resultString = "";
 
-            switch (filePaths)
+            switch (fp)
             {
                 case FilePaths.Folder:
                     resultString = dirPath;
@@ -164,32 +166,12 @@ namespace Data
                 case FilePaths.Guest:
                     resultString = Path.Combine(dirPath, "Rudimentary_Guest_DB.csv");
                     break;
+                default:
+                    throw new Exception($"Unknown Enumerate value detected: {fp}");
             }
             return resultString;
         }
-
-        private string GetFilePath2(FilePaths filePaths)
-        {
-            string dirPath = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
-            string resultString = "";
-
-            switch (filePaths)
-            {
-                case FilePaths.Folder:
-                    return dirPath;
-                    break;
-                case FilePaths.Reservation:
-                    return Path.Combine(dirPath, "Rudimentary_Reservation_DB.csv");
-                    break;
-                case FilePaths.Table:
-                    return Path.Combine(dirPath, "Rudimentary_Table_DB.csv");
-                    break;
-                case FilePaths.Guest:
-                    return Path.Combine(dirPath, "Rudimentary_Guest_DB.csv");
-                    break;
-            }
-            
-        }
+        
 
 
         public string ConvertToFileLine(Reservation r)
