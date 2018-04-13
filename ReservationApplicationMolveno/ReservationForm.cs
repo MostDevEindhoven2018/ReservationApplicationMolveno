@@ -19,9 +19,9 @@ namespace ReservationApplicationMolveno
         {
             InitializeComponent();
 
-	    ReservationLogic _ReservationLogic = new ReservationLogic();
-            _ReservationLogic.CreateDB();
-            _ReservationLogic.AddToDB();
+	    //ReservationLogic _ReservationLogic = new ReservationLogic();
+            //_ReservationLogic.CreateDB();
+            //_ReservationLogic.AddToDB();
 
             // Adds 0 till 23 hours to the combobox with the reservation time
             for (int i = 0; i <= 23; i++)
@@ -55,6 +55,11 @@ namespace ReservationApplicationMolveno
             guest = new Guest();
             reserve = new Reservation();
 
+            reserve.Guest.Name = tb_guestName.Text;
+            reserve.Guest.PhoneNumber = inputGuestPhoneNumber.Text;
+            reserve.Guest.Email = inputGuestEmail.Text;
+            reserve.PartySize = Convert.ToInt32(nud_numberOfGuests.Value);
+            reserve.ArrivalDateTime = JoinDateTime();
         }
 
         private DateTime JoinDateTime()
@@ -69,7 +74,8 @@ namespace ReservationApplicationMolveno
                 DateTime a_date = new DateTime(year, month, day, hour, minutes, 0);
                 return a_date;
             }
-            catch           {
+            catch
+            {
                 return new DateTime(1970, 1, 1, 0, 0, 0);
             }
         }
