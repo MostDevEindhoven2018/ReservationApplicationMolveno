@@ -23,5 +23,11 @@ namespace Logic
             _fileManager.AddToDB(test);
         }
 
+        public void ReadFromDB()
+        {
+            // get the file. 
+            _fileManager.ReadDB();
+        }
+
     }
 }

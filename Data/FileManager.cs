@@ -18,7 +18,7 @@ namespace Data
 
             // Get all file paths
             List<string> FilePaths = GetFilePaths();
-            
+
 
             Dictionary<string, string> FileInfoDict = new Dictionary<string, string>
             {
@@ -47,14 +47,18 @@ namespace Data
             }
         }
 
-        
 
-        public void ReadDB()
+
+        public List<string> ReadDB(int ReservationId)
         {
+            List<string> DBStringList = new List<string>();
+
             try
             {
                 string dirPath = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
                 string filePath = Path.Combine(dirPath, "RudimentaryDB.csv");
+
+
 
                 // Open the stream and read it back.
                 using (StreamReader sr = File.OpenText(filePath))
@@ -62,14 +66,18 @@ namespace Data
                     string s = "";
                     while ((s = sr.ReadLine()) != null)
                     {
-                        Console.WriteLine(s);
+                        DBStringList.Add(s);
                     }
+
+                    return DBStringList;
                 }
+
             }
 
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                return DBStringList;
             }
         }
 
