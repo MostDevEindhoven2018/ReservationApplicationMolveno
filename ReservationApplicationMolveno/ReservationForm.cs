@@ -52,14 +52,19 @@ namespace ReservationApplicationMolveno
 
         private void bt_reserve_Click(object sender, EventArgs e)
         {
-            guest = new Guest();
-            reserve = new Reservation();
+            //create new guest based on form data
+            guest = new Guest(tb_guestName.Text, inputGuestPhoneNumber.Text, inputGuestEmail.Text);
 
-            reserve.Guest.Name = tb_guestName.Text;
-            reserve.Guest.PhoneNumber = inputGuestPhoneNumber.Text;
-            reserve.Guest.Email = inputGuestEmail.Text;
-            reserve.PartySize = Convert.ToInt32(nud_numberOfGuests.Value);
-            reserve.ArrivalDateTime = JoinDateTime();
+            reserve = new Reservation(Convert.ToInt32(nud_numberOfGuests.Value), guest, JoinDateTime());
+
+            //guest = new Guest();
+            //reserve = new Reservation();
+
+            //reserve.Guest.Name = tb_guestName.Text;
+            //reserve.Guest.PhoneNumber = inputGuestPhoneNumber.Text;
+            //reserve.Guest.Email = inputGuestEmail.Text;
+            //reserve.PartySize = Convert.ToInt32(nud_numberOfGuests.Value);
+            //reserve.ArrivalDateTime = JoinDateTime();
         }
 
         private DateTime JoinDateTime()
