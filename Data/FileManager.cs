@@ -17,16 +17,14 @@ namespace Data
 
 
             // Get all file paths
-            string dirPath = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
-            string ReservationFilePath = Path.Combine(dirPath, "Rudimentary_Reservation_DB.csv");
-            string TableFilePath = Path.Combine(dirPath, "Rudimentary_Table_DB.csv");
-            string GuestFilePath = Path.Combine(dirPath, "Rudimentary_Guest_DB.csv");
+            List<string> FilePaths = GetFilePaths();
+
 
             Dictionary<string, string> FileInfoDict = new Dictionary<string, string>
             {
-                { ReservationFilePath, ResInfo },
-                { GuestFilePath, GuestInfo },
-                { TableFilePath, TableInfo }
+                { FilePaths[1], ResInfo },
+                { FilePaths[2], TableInfo },
+                { FilePaths[3], GuestInfo }
             };
 
             foreach (KeyValuePair<string, string> fileInfo in FileInfoDict)
@@ -34,13 +32,12 @@ namespace Data
 
                 try
                 {
-                    // Create the file.
-                    using (FileStream fs = File.Open(fileInfo.Key, FileMode.Append))
+                    using (StreamWriter fs = new StreamWriter(fileInfo.Key, true))
                     {
-                        Byte[] info = new UTF8Encoding(true).GetBytes(fileInfo.Value);
                         // Add some information to the file.
-                        fs.Write(info, 0, info.Length);
+                        fs.WriteLine(fileInfo.Value);
                     }
+
                 }
 
                 catch (Exception ex)
@@ -50,12 +47,18 @@ namespace Data
             }
         }
 
-        public void ReadDB()
+
+
+        public List<string> ReadDB(int ReservationId)
         {
+            List<string> DBStringList = new List<string>();
+
             try
             {
                 string dirPath = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
                 string filePath = Path.Combine(dirPath, "RudimentaryDB.csv");
+
+
 
                 // Open the stream and read it back.
                 using (StreamReader sr = File.OpenText(filePath))
@@ -63,71 +66,107 @@ namespace Data
                     string s = "";
                     while ((s = sr.ReadLine()) != null)
                     {
-                        Console.WriteLine(s);
+                        DBStringList.Add(s);
                     }
+
+                    return DBStringList;
                 }
+
             }
 
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                return DBStringList;
             }
         }
 
         public void CreateDB()
         {
+            List<string> FilePaths = GetFilePaths();
+
+            Dictionary<string, string> FileHeaders = new Dictionary<string, string>
+            {
+                {FilePaths[1], "Reservation_ID, Guest_ID, Start_Time, End_Time , Party_Size , Table_Number"},
+                {FilePaths[2], "Table_Number , Table_Size"},
+                {FilePaths[3], "Guest_ID , Guest_Name , Telephone_Number , Email_Address"}
+            };
+
+            if (!Directory.Exists(FilePaths[0]))
+            {
+                Directory.CreateDirectory(FilePaths[0]);
+            }
+
+            foreach (KeyValuePair<string, string> fileInfo in FileHeaders)
+            {
+                if (!File.Exists(fileInfo.Key))
+                {
+                    //try
+                    //{
+                    //    // Create the file.
+                    //    using (FileStream fs = File.Create(fileInfo.Key))
+                    //    {
+                    //        Byte[] info = new UTF8Encoding(true).GetBytes(fileInfo.Value);
+                    //        // Add some information to the file.
+                    //        fs.Write(info, 0, info.Length);
+                    //        fs.Flush();
+                    //    }
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    Console.WriteLine(ex.ToString());
+                    //}
+
+                    try
+                    {
+                        // Create the file.
+                        using (StreamWriter fs = new StreamWriter(fileInfo.Key, true))
+                        {
+                            // Add some information to the file.
+                            fs.WriteLine(fileInfo.Value);
+                        }
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+                }
+            }
+        }
+
+
+        private List<string> GetFilePaths()
+        {
+
             string dirPath = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
             string ReservationFilePath = Path.Combine(dirPath, "Rudimentary_Reservation_DB.csv");
             string TableFilePath = Path.Combine(dirPath, "Rudimentary_Table_DB.csv");
             string GuestFilePath = Path.Combine(dirPath, "Rudimentary_Guest_DB.csv");
 
-            List<string> ListOfDataBaseFilePaths = new List<string> { ReservationFilePath, TableFilePath, GuestFilePath };
+            List<string> FilePathArray = new List<string> { dirPath, ReservationFilePath, TableFilePath, GuestFilePath };
 
-            foreach (string path in ListOfDataBaseFilePaths)
-            {
-                try
-                {
-                    if (!Directory.Exists(dirPath))
-                    {
-                        Directory.CreateDirectory(dirPath);
-                    }
-
-                    // Delete the file if it exists.
-                    if (!File.Exists(path))
-                    {
-                        // Note that no lock is put on the
-                        // file and the possibility exists
-                        // that another process could do
-                        // something with it between
-                        // the calls to Exists and Delete.
-                        File.Create(path);
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }
-            }
+            return FilePathArray;
         }
 
 
         public string ConvertToFileLine(Reservation r)
         {
 
-            return r.ID.ToString() + "\t" + r.Guest.ID.ToString() + "\t" + r.StartTime + "\t" + r.EndTime +
-                "\t" + r.PartySize + "\t" + r.Table;
+            return r.ID.ToString() + "," + r.Guest.ID.ToString() + "," + r.StartTime + "," + r.EndTime +
+                "," + r.PartySize + "," + r.Table.ID.ToString();
         }
 
         public string ConvertToFileLine(Guest g)
         {
 
-            return g.ID.ToString() + "\t" + g.Name + "\t" + g.TelephoneNumber + "\t" + g.EmailAddress;
+            return g.ID.ToString() + "," + g.Name + "," + g.TelephoneNumber + "," + g.EmailAddress;
         }
 
         public string ConvertToFileLine(Table t)
         {
-            return t.ID.ToString() + "\t" + t.TableSize.ToString();
+            return t.ID.ToString() + "," + t.TableSize.ToString();
         }
     }
 }
