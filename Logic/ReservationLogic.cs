@@ -26,7 +26,7 @@ namespace Logic
         public void ReadFromDB()
         {
             // get the file. 
-            _fileManager.ReadDB();
+            //_fileManager.ReadDB();
         }
 
     }
