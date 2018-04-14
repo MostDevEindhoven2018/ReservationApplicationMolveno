@@ -16,12 +16,22 @@ namespace Logic
 
         public void AddToDB() //Reservation reservation)
         {
-            Guest testGuest = new Guest(1, "Mathijs", "0610101001","Lololol@hotmail.com");
-            Table testTable = new Table(1, 6);
-            Reservation test = new Reservation(1, testTable, testGuest, 6, DateTime.Now, DateTime.Now);
+            
 
-            _fileManager.AddToDB(test);
+            _fileManager.AddToDB();
         }
+
+        public 
+
+
+
+
+
+
+
+
+
+
 
         public void GetCompleteDB()
         {
@@ -42,7 +52,6 @@ namespace Logic
 
                 GuestList.Add(guest);
             }
-
             return GuestList;
         }
 
@@ -58,9 +67,7 @@ namespace Logic
                 Table table = new Table(Table_ID, TableSize);
 
                 TableList.Add(table);
-
             }
-
             return TableList;
         }
 
@@ -82,23 +89,8 @@ namespace Logic
                 Reservation reservation = new Reservation(ReservationID, TableID, GuestID, PartySize, StartTime, EndTime);
 
                 GuestList.Add(reservation);
-
             }
-
             return GuestList;
         }
-
-
-
-        private List<string> AllTables()
-        {
-            return _fileManager.ReadDB(FileManager.FilePaths.Table);
-        }
-
-        private List<string> AllReservations()
-        {
-            return _fileManager.ReadDB(FileManager.FilePaths.Reservation);
-        }
-
     }
 }

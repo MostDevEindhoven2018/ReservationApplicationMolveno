@@ -13,16 +13,14 @@ namespace ReservationApplicationMolveno
 {
     public partial class ReservationForm : Form
     {
-        private Guest guest;
-        private Reservation reserve;
 
         public ReservationForm()
         {
             InitializeComponent();
 
-	    ReservationLogic _ReservationLogic = new ReservationLogic();
+            ReservationLogic _ReservationLogic = new ReservationLogic();
             _ReservationLogic.CreateDB();
-            _ReservationLogic.AddToDB();
+
 
             // Adds 0 till 23 hours to the combobox with the reservation time
             for (int i = 0; i <= 23; i++)
@@ -37,7 +35,7 @@ namespace ReservationApplicationMolveno
                 }
 
             }
-            
+
             for (int i = 0; i < 60; i += 15)
             {
                 if (i == 0)
@@ -53,8 +51,7 @@ namespace ReservationApplicationMolveno
 
         private void bt_reserve_Click(object sender, EventArgs e)
         {
-            guest = new Guest();
-            reserve = new Reservation();
+            CollectData();
 
         }
 
@@ -70,19 +67,24 @@ namespace ReservationApplicationMolveno
                 DateTime a_date = new DateTime(year, month, day, hour, minutes, 0);
                 return a_date;
             }
-            catch           {
+            catch
+            {
                 return new DateTime(1970, 1, 1, 0, 0, 0);
             }
         }
-        
-        //void collectData()
-        //{
-        //    reserve.Guest.Name = inputNameGuest.Text;
-        //    reserve.Guest.Phoneno = inputGuestPhoneNumber.Text;
-        //    reserve.Guest.Email = inputGuestEmail.Text;
-        //    reserve.PartySize = Convert.ToInt32(nud_numberOfGuests.Value);
-        //    reserve.ArrivalDateTime = JoinDateTime();
 
-        //}
+        List<Object> CollectData()
+        {
+            List<Object> FormData = new List<object>
+            {
+                inputNameGuest.Text,                                // Name of Guest, string
+                inputGuestPhoneNumber.Text,                         // PhoneNum of Guest, string
+                inputGuestEmail.Text,                               // EmailAddress of Guest, string
+                Convert.ToInt32(nud_numberOfGuests.Value),          // Party size, int
+                JoinDateTime()                                      // Arrival time, DateTime
+            };
+
+            return FormData;
+        }
     }
 }
