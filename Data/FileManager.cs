@@ -161,7 +161,7 @@ namespace Data
         public string ConvertToFileLine(Guest g)
         {
 
-            return g.ID.ToString() + "," + g.Name + "," + g.TelephoneNumber + "," + g.EmailAddress;
+            return g.ID.ToString() + "," + g.Name + "," + g.TelephoneNumber + "," + g.EmailAddress + "," + g.GuestComment + "," + g.HidePrices;
         }
 
         public string ConvertToFileLine(Table t)

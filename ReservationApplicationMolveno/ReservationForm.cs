@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logic;
 
 namespace ReservationApplicationMolveno
 {
@@ -19,9 +20,7 @@ namespace ReservationApplicationMolveno
         {
             InitializeComponent();
 
-	    ReservationLogic _ReservationLogic = new ReservationLogic();
-            _ReservationLogic.CreateDB();
-            _ReservationLogic.AddToDB();
+
 
             // Adds 0 till 23 hours to the combobox with the reservation time
             for (int i = 0; i <= 23; i++)
@@ -55,7 +54,44 @@ namespace ReservationApplicationMolveno
             guest = new Guest();
             reserve = new Reservation();
 
+            ReservationLogic _ReservationLogic = new ReservationLogic();
+            _ReservationLogic.CreateDB();
+            _ReservationLogic.AddToDB(inputNameGuest.Text, inputGuestPhoneNumber.Text,
+                inputGuestEmail.Text, Convert.ToInt32(nud_numberOfGuests.Value), JoinDateTime(), 
+                inputCommentGuest.Text, OptionHidePrices());
+
+            // https://stackoverflow.com/questions/15569641/reset-all-the-items-in-a-form
+            // Makes a new instance of the form and loads it
+            ReservationForm NewForm = new ReservationForm();
+            NewForm.Show();
+            this.Dispose(false);
+
+
+
         }
+
+        private string OptionHidePrices()
+        {
+            try
+            {
+                if (inputOptionHidePrices.Checked == true)
+                {
+                    string hide = "Please hide prices";
+                    return hide;
+                }
+                else
+                {
+                    string notHide = "Please do not hide prices";
+                    return notHide;
+                }
+            }
+            catch
+            {
+                string error = "Please confirm if guest want to hide prices";
+                return error;
+            }
+        }
+
 
         private DateTime JoinDateTime()
         {
@@ -73,14 +109,17 @@ namespace ReservationApplicationMolveno
                 return new DateTime(1970, 1, 1, 0, 0, 0);
             }
         }
-        
+
         //void collectData()
         //{
         //    reserve.Guest.Name = inputNameGuest.Text;
-        //    reserve.Guest.Phoneno = inputGuestPhoneNumber.Text;
+        //    reserve.Guest.PhoneNumber = inputGuestPhoneNumber.Text;
         //    reserve.Guest.Email = inputGuestEmail.Text;
         //    reserve.PartySize = Convert.ToInt32(nud_numberOfGuests.Value);
         //    reserve.ArrivalDateTime = JoinDateTime();
+
+
+
 
         //}
     }

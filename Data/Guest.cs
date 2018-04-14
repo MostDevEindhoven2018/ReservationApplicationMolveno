@@ -12,13 +12,17 @@ namespace Data
         public string Name;
         public string TelephoneNumber;
         public string EmailAddress;
+        public string GuestComment;
+        public string HidePrices;
 
-        public Guest(int id, string name, string telephoneNumber, string emailAddress)
+        public Guest(int id, string name, string telephoneNumber, string emailAddress, string guestcomment, string hidePrices)
         {
             ID = id;
             Name = name;
             TelephoneNumber = telephoneNumber;
             EmailAddress = emailAddress;
+            GuestComment = guestcomment;
+            HidePrices = hidePrices;
 
         }
     }
