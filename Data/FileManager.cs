@@ -7,7 +7,22 @@ namespace Data
 {
     public class FileManager
     {
+        private static FileManager _instance;
 
+        protected FileManager()
+        {
+        }
+
+        public static FileManager Instance()
+        {
+            if (_instance == null)
+            {
+                _instance = new FileManager();
+
+            }
+
+            return _instance;
+        }
 
 
         public enum FilePaths
@@ -19,12 +34,11 @@ namespace Data
         }
 
 
-        public void AddToDB(Reservation reservation)
+        public void AddReservationToDB(Reservation reservation, Guest guest)
         {
             // convert all the information from the reservation class to single line strings. Tab deliminated.
             string ResInfo = ConvertToFileLine(reservation);
-            string GuestInfo = ConvertToFileLine(reservation.Guest);
-            string TableInfo = ConvertToFileLine(reservation.Table);
+            string GuestInfo = ConvertToFileLine(guest);
 
 
             // Get all file paths
@@ -33,8 +47,7 @@ namespace Data
             Dictionary<string, string> FileInfoDict = new Dictionary<string, string>
             {
                 { GetFilePath(FilePaths.Reservation), ResInfo },
-                { GetFilePath(FilePaths.Table), TableInfo },
-                { GetFilePath(FilePaths.Guest), GuestInfo }
+                { GetFilePath(FilePaths.Guest), GuestInfo } 
             };
 
             foreach (KeyValuePair<string, string> fileInfo in FileInfoDict)

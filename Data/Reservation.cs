@@ -9,17 +9,17 @@ namespace Data
     public class Reservation
     {
         public long ID { get; set; }
-        public long TableID {  get; set; }
-        public long GuestID {  get; set; }
+        public Table Table { get; set; }
+        public Guest Guest {  get; set; }
         public int PartySize {  get; set; }
         public DateTime StartTime {  get; set; }
         public DateTime EndTime {  get; set; }
 
-        public Reservation(long id, long tableId, long guestId, int partySize, DateTime startTime, DateTime endTime)
+        public Reservation(long id, Table table, Guest guest, int partySize, DateTime startTime, DateTime endTime)
         {
             ID = id;
-            TableID = tableId;
-            GuestID = guestId;
+            Table = table;
+            Guest = guest;
             PartySize = partySize;
             StartTime = startTime;
             EndTime = endTime;
