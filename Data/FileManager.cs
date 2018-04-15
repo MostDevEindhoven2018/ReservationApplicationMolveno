@@ -8,6 +8,17 @@ namespace Data
     public class FileManager
     {
 
+
+
+        public enum FilePaths
+        {
+            Folder,
+            Reservation,
+            Table,
+            Guest
+        }
+
+
         public void AddToDB(Reservation reservation)
         {
             // convert all the information from the reservation class to single line strings. Tab deliminated.
@@ -17,14 +28,13 @@ namespace Data
 
 
             // Get all file paths
-            List<string> FilePaths = GetFilePaths();
-
+            
 
             Dictionary<string, string> FileInfoDict = new Dictionary<string, string>
             {
-                { FilePaths[1], ResInfo },
-                { FilePaths[2], TableInfo },
-                { FilePaths[3], GuestInfo }
+                { GetFilePath(FilePaths.Reservation), ResInfo },
+                { GetFilePath(FilePaths.Table), TableInfo },
+                { GetFilePath(FilePaths.Guest), GuestInfo }
             };
 
             foreach (KeyValuePair<string, string> fileInfo in FileInfoDict)
@@ -49,14 +59,14 @@ namespace Data
 
 
 
-        public List<string> ReadDB(int ReservationId)
+        public List<string> ReadDB(FilePaths fp)
         {
             List<string> DBStringList = new List<string>();
 
             try
             {
                 string dirPath = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
-                string filePath = Path.Combine(dirPath, "RudimentaryDB.csv");
+                string filePath = GetFilePath(fp);
 
 
 
@@ -83,18 +93,18 @@ namespace Data
 
         public void CreateDB()
         {
-            List<string> FilePaths = GetFilePaths();
+           
 
             Dictionary<string, string> FileHeaders = new Dictionary<string, string>
             {
-                {FilePaths[1], "Reservation_ID, Guest_ID, Start_Time, End_Time , Party_Size , Table_Number"},
-                {FilePaths[2], "Table_Number , Table_Size"},
-                {FilePaths[3], "Guest_ID , Guest_Name , Telephone_Number , Email_Address"}
+                {GetFilePath(FilePaths.Reservation), "Reservation_ID, Guest_ID, Start_Time, End_Time , Party_Size , Table_Number"},
+                {GetFilePath(FilePaths.Table), "Table_Number , Table_Size"},
+                {GetFilePath(FilePaths.Guest), "Guest_ID , Guest_Name , Telephone_Number , Email_Address"}
             };
 
-            if (!Directory.Exists(FilePaths[0]))
+            if (!Directory.Exists(GetFilePath(FilePaths.Folder)))
             {
-                Directory.CreateDirectory(FilePaths[0]);
+                Directory.CreateDirectory(GetFilePath(FilePaths.Folder));
             }
 
             foreach (KeyValuePair<string, string> fileInfo in FileHeaders)
@@ -137,18 +147,31 @@ namespace Data
         }
 
 
-        private List<string> GetFilePaths()
+        private string GetFilePath(FilePaths fp)
         {
-
             string dirPath = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
-            string ReservationFilePath = Path.Combine(dirPath, "Rudimentary_Reservation_DB.csv");
-            string TableFilePath = Path.Combine(dirPath, "Rudimentary_Table_DB.csv");
-            string GuestFilePath = Path.Combine(dirPath, "Rudimentary_Guest_DB.csv");
+            string resultString = "";
 
-            List<string> FilePathArray = new List<string> { dirPath, ReservationFilePath, TableFilePath, GuestFilePath };
-
-            return FilePathArray;
+            switch (fp)
+            {
+                case FilePaths.Folder:
+                    resultString = dirPath;
+                    break;
+                case FilePaths.Reservation:
+                    resultString = Path.Combine(dirPath, "Rudimentary_Reservation_DB.csv");
+                    break;
+                case FilePaths.Table:
+                    resultString = Path.Combine(dirPath, "Rudimentary_Table_DB.csv");
+                    break;
+                case FilePaths.Guest:
+                    resultString = Path.Combine(dirPath, "Rudimentary_Guest_DB.csv");
+                    break;
+                default:
+                    throw new Exception($"Unknown Enumerate value detected: {fp}");
+            }
+            return resultString;
         }
+        
 
 
         public string ConvertToFileLine(Reservation r)

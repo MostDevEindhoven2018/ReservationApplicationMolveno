@@ -8,10 +8,10 @@ namespace Data
 {
     public class Table
     {
-        public int ID;                     // 
+        public long ID;                     // 
         public int TableSize;              // Amount of people that can be seated at this table
 
-        public Table(int id, int tableSize)
+        public Table(long id, int tableSize)
         {
             ID = id;
             TableSize = tableSize;
