@@ -53,13 +53,12 @@ namespace Logic
             // If and when all is well, convert the ReservationModel to a Reservation, and send it to the database
             Reservation FinalisedReservation = CreateReservation(prelimRM);
             AddToDB(FinalisedReservation);
-
         }
 
         public void AddToDB(Reservation res) //Reservation reservation)
         {
             Guest guest = res.Guest;
-            
+
             _fileManager.AddReservationToDB(res, guest);
         }
         //                                          create the Reservation Classes
@@ -173,15 +172,55 @@ namespace Logic
 
 
 
+        //                                          create the ViewModel Classes
+
+        public ReservationViewModel CreateReservationViewModel(Reservation reservation)
+        {
+            GuestViewModel resultGuestViewModel = CreateGuestViewModel(reservation.Guest);
+            TableViewModel resultTableViewModel = CreateTableViewModel(reservation.Table);
+
+
+            ReservationViewModel resultReservationViewModel = new ReservationViewModel(reservation.ID, resultTableViewModel, resultGuestViewModel, reservation.PartySize, reservation.StartTime, reservation.EndTime);
+            return resultReservationViewModel;
+        }
+
+        private TableViewModel CreateTableViewModel(Table table)
+        {
+            TableViewModel resultTableViewModel = new TableViewModel(table.ID, table.TableSize);
+
+            return resultTableViewModel;
+        }
+
+        private GuestViewModel CreateGuestViewModel(Guest guest)
+        {
+            GuestViewModel resultGuestViewModel = new GuestViewModel(guest.ID, guest.Name, guest.TelephoneNumber, guest.EmailAddress);
+
+            return resultGuestViewModel;
+        }
 
 
 
         //******************************************Retrieving data from database*******************************************
-        public void GetCompleteDB()
+        public List<ReservationViewModel> GetAllViewModels()
         {
-            GetAllGuests();
-            GetAllTables();
-            GetAllReservations();
+            List<ReservationViewModel> resultList = new List<ReservationViewModel>();
+            foreach(Reservation res in GetCompleteDB())
+            {
+                ReservationViewModel RVM = CreateReservationViewModel(res);
+
+                resultList.Add(RVM);
+            }
+            return resultList;
+        }
+
+
+
+
+
+        public List<Reservation> GetCompleteDB()
+        {
+            
+            return GetAllReservations();
         }
 
         private List<Guest> GetAllGuests()
@@ -224,11 +263,11 @@ namespace Logic
             {
                 string[] ReservationInfoArray = ReservationInfo.Split(',');
                 long.TryParse(ReservationInfoArray[0], out long ReservationID);
-                long.TryParse(ReservationInfoArray[1], out long TableID);
-                long.TryParse(ReservationInfoArray[2], out long GuestID);
-                int.TryParse(ReservationInfoArray[3], out int PartySize);
-                DateTime.TryParse(ReservationInfoArray[4], out DateTime StartTime);
-                DateTime.TryParse(ReservationInfoArray[5], out DateTime EndTime);
+                long.TryParse(ReservationInfoArray[1], out long GuestID);
+                DateTime.TryParse(ReservationInfoArray[2], out DateTime StartTime);
+                DateTime.TryParse(ReservationInfoArray[3], out DateTime EndTime);
+                int.TryParse(ReservationInfoArray[4], out int PartySize);
+                long.TryParse(ReservationInfoArray[5], out long TableID);
 
                 Table table = GetAllTables().Single(findTable => findTable.ID == TableID);
                 Guest guest = GetAllGuests().Single(findGuest => findGuest.ID == GuestID);
@@ -239,5 +278,9 @@ namespace Logic
             }
             return GuestList;
         }
+
+
+
+
     }
 }

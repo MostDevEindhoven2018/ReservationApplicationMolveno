@@ -55,7 +55,7 @@ namespace ReservationApplicationMolveno
 
         }
 
-        
+
 
         List<Object> CollectData()
         {
@@ -76,5 +76,56 @@ namespace ReservationApplicationMolveno
 
             return FormData;
         }
-}
+
+        private void bt_ViewReservation_Click(object sender, EventArgs e)
+        {
+            // Get all ReservationViewModels
+            List<ReservationViewModel> AllViewModels = ReservationLogic.Instance().GetAllViewModels();
+
+            // open new form that shows all reservations.
+            ReservationViewingForm RVF = new ReservationViewingForm();
+
+            // clear everything 
+            RVF.Controls.Clear();
+
+            // Add the headers back
+            foreach (Control control in RVF.HeaderLabels)
+            {
+                RVF.Controls.Add(control);
+            }
+
+
+
+            int x = 12;
+            int y = 50;
+            // For each reservation, create a list of every string that we want to present, then fill the labels with that info.
+            foreach (ReservationViewModel RVM in AllViewModels)
+            {
+                List<string> ReservationInfo = new List<string>
+                {RVM.GuestViewModel.Name,
+                RVM.PartySize.ToString(),
+                RVM.TableViewModel.ID.ToString(),
+                RVM.StartTime.ToString(),
+                RVM.EndTime.ToString()
+                };
+
+                for(int i = 0; i < ReservationInfo.Count; i++)
+                {
+                    Label namelabel = new Label();
+                    namelabel.Location = new Point(x, y);
+                    namelabel.Text = ReservationInfo[i];
+                    RVF.Controls.Add(namelabel);
+
+                    x += RVF.HeaderLabels[i+1].Width;
+                }
+
+                y += 20;
+            }
+
+
+
+
+            RVF.Show();
+        }
+    }
 }

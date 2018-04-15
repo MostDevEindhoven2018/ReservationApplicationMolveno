@@ -49,6 +49,7 @@
             this.dtp_arrivingDate = new System.Windows.Forms.DateTimePicker();
             this.nud_numberOfGuests = new System.Windows.Forms.NumericUpDown();
             this.bt_reserve = new System.Windows.Forms.Button();
+            this.bt_ViewReservation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nud_numberOfGuests)).BeginInit();
             this.SuspendLayout();
             // 
@@ -240,7 +241,7 @@
             // nud_numberOfGuests
             // 
             this.nud_numberOfGuests.Location = new System.Drawing.Point(205, 118);
-            this.nud_numberOfGuests.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nud_numberOfGuests.Margin = new System.Windows.Forms.Padding(4);
             this.nud_numberOfGuests.Name = "nud_numberOfGuests";
             this.nud_numberOfGuests.Size = new System.Drawing.Size(116, 22);
             this.nud_numberOfGuests.TabIndex = 22;
@@ -253,7 +254,7 @@
             // bt_reserve
             // 
             this.bt_reserve.Location = new System.Drawing.Point(224, 385);
-            this.bt_reserve.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_reserve.Margin = new System.Windows.Forms.Padding(4);
             this.bt_reserve.Name = "bt_reserve";
             this.bt_reserve.Size = new System.Drawing.Size(100, 28);
             this.bt_reserve.TabIndex = 23;
@@ -261,11 +262,23 @@
             this.bt_reserve.UseVisualStyleBackColor = true;
             this.bt_reserve.Click += new System.EventHandler(this.bt_reserve_Click);
             // 
+            // bt_ViewReservation
+            // 
+            this.bt_ViewReservation.Location = new System.Drawing.Point(59, 385);
+            this.bt_ViewReservation.Margin = new System.Windows.Forms.Padding(4);
+            this.bt_ViewReservation.Name = "bt_ViewReservation";
+            this.bt_ViewReservation.Size = new System.Drawing.Size(100, 28);
+            this.bt_ViewReservation.TabIndex = 24;
+            this.bt_ViewReservation.Text = "View Reservations";
+            this.bt_ViewReservation.UseVisualStyleBackColor = true;
+            this.bt_ViewReservation.Click += new System.EventHandler(this.bt_ViewReservation_Click);
+            // 
             // ReservationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(385, 482);
+            this.Controls.Add(this.bt_ViewReservation);
             this.Controls.Add(this.bt_reserve);
             this.Controls.Add(this.nud_numberOfGuests);
             this.Controls.Add(this.dtp_arrivingDate);
@@ -316,6 +329,7 @@
         private System.Windows.Forms.DateTimePicker dtp_arrivingDate;
         private System.Windows.Forms.NumericUpDown nud_numberOfGuests;
         private System.Windows.Forms.Button bt_reserve;
+        private System.Windows.Forms.Button bt_ViewReservation;
     }
 }
 
