@@ -42,48 +42,48 @@ namespace Logic
             _fileManager.AddToDB(test);
         }
 
-        public void GetCompleteDB()
-        {
-            // get the file. 
-            _fileManager.ReadDB(1);
-            GetAllGuests();
-            GetAllTables();
-            GetAllReservations();
-        }
+        //public void GetCompleteDB()
+        //{
+        //    // get the file. 
+        //    _fileManager.ReadDB(1);
+        //    GetAllGuests();
+        //    GetAllTables();
+        //    GetAllReservations();
+        //}
 
-        private List<Guest> GetAllGuests()
-        {
-            List<Guest> GuestList = new List<Guest>();
-            List<string> AllGuestInfos = _fileManager.ReadDB(FileManager.FilePaths.Guest);
-            foreach (string GuestInfo in AllGuestInfos)
-            {
-                string[] guestInfoArray = GuestInfo.Split(',');
-                long.TryParse(guestInfoArray[0], out long guest_ID);
-                Guest guest = new Guest(guest_ID, guestInfoArray[1], guestInfoArray[2], guestInfoArray[3] );
+        //private List<Guest> GetAllGuests()
+        //{
+        //    List<Guest> GuestList = new List<Guest>();
+        //    List<string> AllGuestInfos = _fileManager.ReadDB(FileManager.FilePaths.Guest);
+        //    foreach (string GuestInfo in AllGuestInfos)
+        //    {
+        //        string[] guestInfoArray = GuestInfo.Split(',');
+        //        long.TryParse(guestInfoArray[0], out long guest_ID);
+        //        Guest guest = new Guest(guest_ID, guestInfoArray[1], guestInfoArray[2], guestInfoArray[3]);
 
-                GuestList.Add(guest);
-            }
+        //        GuestList.Add(guest);
+        //    }
 
-            return GuestList;
-        }
+        //    return GuestList;
+        //}
 
-        private List<Table> GetAllTables()
-        {
-            List<Table> TableList = new List<Table>();
-            List<string> AllTableInfos = _fileManager.ReadDB(FileManager.FilePaths.Table);
-            foreach (string TableInfo in AllTableInfos)
-            {
-                string[] TableInfoArray = TableInfo.Split(',');
-                long.TryParse(TableInfoArray[0], out long Table_ID);
-                int.TryParse(TableInfoArray[1], out int TableSize);
-                Table table = new Table(Table_ID, TableSize);
+        //private List<Table> GetAllTables()
+        //{
+        //    List<Table> TableList = new List<Table>();
+        //    List<string> AllTableInfos = _fileManager.ReadDB(FileManager.FilePaths.Table);
+        //    foreach (string TableInfo in AllTableInfos)
+        //    {
+        //        string[] TableInfoArray = TableInfo.Split(',');
+        //        long.TryParse(TableInfoArray[0], out long Table_ID);
+        //        int.TryParse(TableInfoArray[1], out int TableSize);
+        //        Table table = new Table(Table_ID, TableSize);
 
-                TableList.Add(table);
+        //        TableList.Add(table);
 
-            }
+        //    }
 
-            return TableList;
-        }
+        //    return TableList;
+        //}
 
         private List<Reservation> GetAllReservations()
         {
@@ -100,9 +100,9 @@ namespace Logic
                 DateTime.TryParse(ReservationInfoArray[5], out DateTime EndTime);
 
 
-                Reservation reservation = new Reservation(ReservationID, TableID, GuestID, PartySize, StartTime, EndTime);
+                //Reservation reservation = new Reservation(ReservationID, TableID, GuestID, PartySize, StartTime, EndTime);
 
-                GuestList.Add(reservation);
+                //GuestList.Add(reservation);
 
             }
 
