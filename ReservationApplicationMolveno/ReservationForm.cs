@@ -51,7 +51,7 @@ namespace ReservationApplicationMolveno
 
         private void bt_reserve_Click(object sender, EventArgs e)
         {
-            ReservationLogic.Instance().CreateReservationModel(CollectData());
+            ReservationLogic.Instance().ProcessReservation(CollectData());
 
         }
 

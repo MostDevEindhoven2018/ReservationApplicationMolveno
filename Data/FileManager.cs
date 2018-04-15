@@ -86,6 +86,10 @@ namespace Data
                 // Open the stream and read it back.
                 using (StreamReader sr = File.OpenText(filePath))
                 {
+                    // Cut out the header by reading it and not doing anything with it.
+                    sr.ReadLine();
+
+                    // Actually read the file.
                     string s = "";
                     while ((s = sr.ReadLine()) != null)
                     {
@@ -124,22 +128,6 @@ namespace Data
             {
                 if (!File.Exists(fileInfo.Key))
                 {
-                    //try
-                    //{
-                    //    // Create the file.
-                    //    using (FileStream fs = File.Create(fileInfo.Key))
-                    //    {
-                    //        Byte[] info = new UTF8Encoding(true).GetBytes(fileInfo.Value);
-                    //        // Add some information to the file.
-                    //        fs.Write(info, 0, info.Length);
-                    //        fs.Flush();
-                    //    }
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    Console.WriteLine(ex.ToString());
-                    //}
-
                     try
                     {
                         // Create the file.

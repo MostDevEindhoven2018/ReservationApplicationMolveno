@@ -28,8 +28,12 @@ namespace Logic
 
         FileManager _fileManager = FileManager.Instance();
 
-        int DurationOfReservation { get; set; } = 2; // two hours for now. This will be set through some configuration stuff and will be editable by admins (Klaas).
-        int TableIndex;
+        int DurationOfReservation { get; set; } = 2;    // Two hours for now. This will be set through some configuration stuff and will be editable by admins (Klaas).
+
+        int TableIndex;                                 // For now, when we look for an available table, we simply loop through all tables 
+                                                        // without checking for existing reservations. This will obviously be changed to a fancy checking system.
+
+
 
         public void CreateDB()
         {
@@ -37,13 +41,55 @@ namespace Logic
         }
 
 
-        public void AddToDB(ReservationModel resModel) //Reservation reservation)
-        {
-            Reservation res = CreateReservation(resModel);
+        //******************************************Sending data to database*******************************************
 
-            _fileManager.AddReservationToDB(res, guest);
+        public void ProcessReservation(List<object> rawReservationData)
+        {
+            ReservationModel prelimRM = CreateReservationModel(rawReservationData);
+            // Below here, do all kinds of fancy pantsy tests and checks and such
+
+
+
+            // If and when all is well, convert the ReservationModel to a Reservation, and send it to the database
+            Reservation FinalisedReservation = CreateReservation(prelimRM);
+            AddToDB(FinalisedReservation);
+
         }
 
+        public void AddToDB(Reservation res) //Reservation reservation)
+        {
+            Guest guest = res.Guest;
+            
+            _fileManager.AddReservationToDB(res, guest);
+        }
+        //                                          create the Reservation Classes
+
+        public Guest CreateGuest(GuestModel guestModel)
+        {
+            Guest resultGuest = new Guest(guestModel.ID, guestModel.Name, guestModel.TelephoneNumber, guestModel.EmailAddress);
+
+            return resultGuest;
+        }
+
+        public Table CreateTable(TableModel tableModel)
+        {
+            Table resultTable = new Table(tableModel.ID, tableModel.TableSize);
+
+            return resultTable;
+        }
+
+
+        public Reservation CreateReservation(ReservationModel resModel)
+        {
+            Guest resultGuest = CreateGuest(resModel.GuestModel);
+            Table resultTable = CreateTable(resModel.TableModel);
+
+
+            Reservation resultReservation = new Reservation(resModel.ID, resultTable, resultGuest, resModel.PartySize, resModel.StartTime, resModel.EndTime);
+            return resultReservation;
+        }
+
+        //                                          create the Model Classes
 
 
         public GuestModel CreateGuestModel(List<object> rawReservationData)
@@ -55,11 +101,8 @@ namespace Logic
         }
 
 
-
-
         public ReservationModel CreateReservationModel(List<object> rawReservationData)
         {
-
             // Construct GuestModel
             GuestModel guestModel = CreateGuestModel(rawReservationData);
 
@@ -73,19 +116,12 @@ namespace Logic
             // TODO: check whether or not arrivalTime.Hour + DurationOfReservation is within opening hours of the restaurant.
             DateTime endTime = new DateTime(arrivalTime.Year, arrivalTime.Month, arrivalTime.Day, arrivalTime.Hour + DurationOfReservation, arrivalTime.Minute, 0);
 
-
-
-
-
             // Find an available table and assign it to the ReservationModel.
             TableModel tableModel = GetAvailableTable();
 
 
-
-
             // using everything, construct the ReservationModel. ID is set internally without using arguments.
             ReservationModel resModel = new ReservationModel(tableModel, guestModel, partySize, arrivalTime, endTime);
-
 
             // Now we have everything, 
             return resModel;
@@ -108,7 +144,7 @@ namespace Logic
             }
 
             Table currentTable = allTables[TableIndex++];
-            
+
             // Convert currentTable to a TableModel. This seems weird, and it kind of is... But using a TableModel instead of Table, makes sure that all compounds of 
             // the ReservationModel reside in the Logic layer, and not in the data layer. However unlikely it is, we might want to change stuff from the tables,
             // and if so, we would probably want to do that in the logic layer, and not in the data layer. For now, this convertion indeed is super silly, I agree.
@@ -136,6 +172,11 @@ namespace Logic
         }
 
 
+
+
+
+
+        //******************************************Retrieving data from database*******************************************
         public void GetCompleteDB()
         {
             GetAllGuests();
@@ -189,8 +230,10 @@ namespace Logic
                 DateTime.TryParse(ReservationInfoArray[4], out DateTime StartTime);
                 DateTime.TryParse(ReservationInfoArray[5], out DateTime EndTime);
 
+                Table table = GetAllTables().Single(findTable => findTable.ID == TableID);
+                Guest guest = GetAllGuests().Single(findGuest => findGuest.ID == GuestID);
 
-                Reservation reservation = new Reservation(ReservationID, TableID, GuestID, PartySize, StartTime, EndTime);
+                Reservation reservation = new Reservation(ReservationID, table, guest, PartySize, StartTime, EndTime);
 
                 GuestList.Add(reservation);
             }
