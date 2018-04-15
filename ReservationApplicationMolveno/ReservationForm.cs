@@ -23,6 +23,8 @@ namespace ReservationApplicationMolveno
 
             _ReservationLogic = new ReservationLogic();
             _ReservationLogic.CreateDB();
+            dd_arrivingHour.Text = "21";
+            dd_arrivingMinute.Text = "00";
 
             // Adds 0 till 23 hours to the combobox with the reservation time
             for (int i = 0; i <= 23; i++)
@@ -66,8 +68,14 @@ namespace ReservationApplicationMolveno
             //NewForm.Show();
             //this.Dispose(false);
 
+            this.Clear();
+        }
+
+        private void Clear()
+        {
             dtp_arrivingDate.Value = DateTime.Today;
             dd_arrivingHour.Text = DateTime.Now.TimeOfDay.ToString();
+            dd_arrivingHour.Text = "21";
             dd_arrivingMinute.Text = "00";
             nud_numberOfGuests.Value = 4;
             tb_guestName.Clear();
@@ -117,18 +125,5 @@ namespace ReservationApplicationMolveno
                 return DateTime.Now;
             }
         }
-
-        //void collectData()
-        //{
-        //    reserve.Guest.Name = inputNameGuest.Text;
-        //    reserve.Guest.PhoneNumber = inputGuestPhoneNumber.Text;
-        //    reserve.Guest.Email = inputGuestEmail.Text;
-        //    reserve.PartySize = Convert.ToInt32(nud_numberOfGuests.Value);
-        //    reserve.ArrivalDateTime = JoinDateTime();
-
-
-
-
-        //}
     }
 }
