@@ -8,17 +8,21 @@ namespace Data
 {
     public class Guest
     {
-        public long ID;
+        public int ID;
         public string Name;
         public string TelephoneNumber;
         public string EmailAddress;
+        public string GuestComment;
+        public string HidePrices;
 
-        public Guest(long id, string name, string telephoneNumber, string emailAddress)
+        public Guest(int id, string name, string telephoneNumber, string emailAddress, string guestcomment, string hidePrices)
         {
             ID = id;
             Name = name;
             TelephoneNumber = telephoneNumber;
             EmailAddress = emailAddress;
+            GuestComment = guestcomment;
+            HidePrices = hidePrices;
 
         }
     }
