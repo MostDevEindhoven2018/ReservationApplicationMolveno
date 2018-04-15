@@ -1,0 +1,9 @@
+                       
+            // Inputs date and time now and guest name without spaces into the guestD
+            // https://stackoverflow.com/questions/3905180/how-to-trim-whitespace-between-characters
+            string str = inputNameGuest.Text;
+            str = Regex.Replace(str, @"\s", "");
+            string guestID = ($"{DateTime.Now.ToString("ddMMyyyyHHmmss")}_{str}");
+
+            // Spaces in guestID
+            // string guestID = ($"{DateTime.Now.ToString("ddMMyyyyHHmmss")}_{inputNameGuest.Text}");
