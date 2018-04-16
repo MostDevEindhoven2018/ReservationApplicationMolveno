@@ -27,7 +27,9 @@ namespace ReservationApplicationMolveno
                 lbl_partySize,
                 lbl_tableNum,
                 lbl_arrivalTime,
-                lbl_EndTime
+                lbl_EndTime,
+                lbl_HidePrices,
+                lbl_Comments
                 
 
             };

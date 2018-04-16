@@ -34,6 +34,8 @@
             this.lbl_tableNum = new System.Windows.Forms.Label();
             this.lbl_arrivalTime = new System.Windows.Forms.Label();
             this.lbl_EndTime = new System.Windows.Forms.Label();
+            this.lbl_HidePrices = new System.Windows.Forms.Label();
+            this.lbl_Comments = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_header
@@ -90,11 +92,31 @@
             this.lbl_EndTime.TabIndex = 5;
             this.lbl_EndTime.Text = "End Time";
             // 
+            // lbl_HidePrices
+            // 
+            this.lbl_HidePrices.AutoSize = true;
+            this.lbl_HidePrices.Location = new System.Drawing.Point(602, 38);
+            this.lbl_HidePrices.Name = "lbl_HidePrices";
+            this.lbl_HidePrices.Size = new System.Drawing.Size(80, 17);
+            this.lbl_HidePrices.TabIndex = 6;
+            this.lbl_HidePrices.Text = "Hide Prices";
+            // 
+            // lbl_Comments
+            // 
+            this.lbl_Comments.AutoSize = true;
+            this.lbl_Comments.Location = new System.Drawing.Point(739, 38);
+            this.lbl_Comments.Name = "lbl_Comments";
+            this.lbl_Comments.Size = new System.Drawing.Size(74, 17);
+            this.lbl_Comments.TabIndex = 7;
+            this.lbl_Comments.Text = "Comments";
+            // 
             // ReservationViewingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 353);
+            this.ClientSize = new System.Drawing.Size(1437, 353);
+            this.Controls.Add(this.lbl_Comments);
+            this.Controls.Add(this.lbl_HidePrices);
             this.Controls.Add(this.lbl_EndTime);
             this.Controls.Add(this.lbl_arrivalTime);
             this.Controls.Add(this.lbl_tableNum);
@@ -116,5 +138,7 @@
         private System.Windows.Forms.Label lbl_tableNum;
         private System.Windows.Forms.Label lbl_arrivalTime;
         private System.Windows.Forms.Label lbl_EndTime;
+        private System.Windows.Forms.Label lbl_HidePrices;
+        private System.Windows.Forms.Label lbl_Comments;
     }
 }

@@ -12,8 +12,10 @@ namespace Logic
         public int PartySize { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
+        public string HidePrices { get; set; }
+        public string GuestComments { get; set; }
 
-        public ReservationViewModel(long id, TableViewModel tableViewModel, GuestViewModel guestViewModel, int partySize, DateTime startTime, DateTime endTime)
+        public ReservationViewModel(long id, TableViewModel tableViewModel, GuestViewModel guestViewModel, int partySize, DateTime startTime, DateTime endTime, bool hidePrices, string guestComments)
         {
             ID = id;
             TableViewModel = tableViewModel;
@@ -21,6 +23,16 @@ namespace Logic
             PartySize = partySize;
             StartTime = startTime;
             EndTime = endTime;
+            if(hidePrices)
+            {
+                HidePrices = "Yes";
+            }
+            else
+            {
+                HidePrices = "No";
+            }
+            GuestComments = guestComments;
+
         }
 
     }

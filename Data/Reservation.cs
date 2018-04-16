@@ -14,8 +14,10 @@ namespace Data
         public int PartySize {  get; set; }
         public DateTime StartTime {  get; set; }
         public DateTime EndTime {  get; set; }
+        public bool HidePrices { get; set; }
+        public string GuestComments { get; set; }
 
-        public Reservation(long id, Table table, Guest guest, int partySize, DateTime startTime, DateTime endTime)
+        public Reservation(long id, Table table, Guest guest, int partySize, DateTime startTime, DateTime endTime, bool hidePrices, string guestComments)
         {
             ID = id;
             Table = table;
@@ -23,6 +25,8 @@ namespace Data
             PartySize = partySize;
             StartTime = startTime;
             EndTime = endTime;
+            HidePrices = hidePrices;
+            GuestComments = guestComments;
         }
     }
 }

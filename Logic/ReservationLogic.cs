@@ -83,7 +83,7 @@ namespace Logic
             Table resultTable = CreateTable(resModel.TableModel);
 
 
-            Reservation resultReservation = new Reservation(resModel.ID, resultTable, resultGuest, resModel.PartySize, resModel.StartTime, resModel.EndTime);
+            Reservation resultReservation = new Reservation(resModel.ID, resultTable, resultGuest, resModel.PartySize, resModel.StartTime, resModel.EndTime, resModel.HidePrices, resModel.GuestComments);
             return resultReservation;
         }
 
@@ -118,8 +118,18 @@ namespace Logic
             TableModel tableModel = GetAvailableTable();
 
 
+            bool hidePrices = (bool)rawReservationData[10];
+
+            string guestComments = (string)rawReservationData[9];
+
+            // check whether or not the comments is empty
+            if(guestComments == null)
+            {
+                guestComments = "-";
+            }
+
             // using everything, construct the ReservationModel. ID is set internally without using arguments.
-            ReservationModel resModel = new ReservationModel(tableModel, guestModel, partySize, arrivalTime, endTime);
+            ReservationModel resModel = new ReservationModel(tableModel, guestModel, partySize, arrivalTime, endTime, hidePrices, guestComments);
 
             // Now we have everything, 
             return resModel;
@@ -179,7 +189,8 @@ namespace Logic
             TableViewModel resultTableViewModel = CreateTableViewModel(reservation.Table);
 
 
-            ReservationViewModel resultReservationViewModel = new ReservationViewModel(reservation.ID, resultTableViewModel, resultGuestViewModel, reservation.PartySize, reservation.StartTime, reservation.EndTime);
+            ReservationViewModel resultReservationViewModel = new ReservationViewModel(reservation.ID, resultTableViewModel, resultGuestViewModel, 
+                reservation.PartySize, reservation.StartTime, reservation.EndTime, reservation.HidePrices, reservation.GuestComments);
             return resultReservationViewModel;
         }
 
@@ -267,19 +278,17 @@ namespace Logic
                 DateTime.TryParse(ReservationInfoArray[3], out DateTime EndTime);
                 int.TryParse(ReservationInfoArray[4], out int PartySize);
                 long.TryParse(ReservationInfoArray[5], out long TableID);
+                bool.TryParse(ReservationInfoArray[6], out bool HidePrices);
+                string GuestComments = ReservationInfoArray[7];
 
                 Table table = GetAllTables().Single(findTable => findTable.ID == TableID);
                 Guest guest = GetAllGuests().Single(findGuest => findGuest.ID == GuestID);
 
-                Reservation reservation = new Reservation(ReservationID, table, guest, PartySize, StartTime, EndTime);
+                Reservation reservation = new Reservation(ReservationID, table, guest, PartySize, StartTime, EndTime, HidePrices, GuestComments);
 
                 GuestList.Add(reservation);
             }
             return GuestList;
         }
-
-
-
-
     }
 }

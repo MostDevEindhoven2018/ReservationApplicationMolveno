@@ -114,7 +114,7 @@ namespace Data
 
             Dictionary<string, string> FileHeaders = new Dictionary<string, string>
             {
-                {GetFilePath(FilePaths.Reservation), "Reservation_ID, Guest_ID, Start_Time, End_Time , Party_Size , Table_Number"},
+                {GetFilePath(FilePaths.Reservation), "Reservation_ID, Guest_ID, Start_Time, End_Time , Party_Size , Table_Number , Hide_Prices , Guest_Comments"},
                 {GetFilePath(FilePaths.Table), "Table_Number , Table_Size"},
                 {GetFilePath(FilePaths.Guest), "Guest_ID , Guest_Name , Telephone_Number , Email_Address"}
             };
@@ -179,7 +179,7 @@ namespace Data
         {
 
             return r.ID.ToString() + "," + r.Guest.ID.ToString() + "," + r.StartTime + "," + r.EndTime +
-                "," + r.PartySize + "," + r.Table.ID.ToString();
+                "," + r.PartySize + "," + r.Table.ID.ToString() + "," + r.HidePrices.ToString() + "," + r.GuestComments;
         }
 
         public string ConvertToFileLine(Guest g)

@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Logic;
 using System.Windows.Forms;
 
@@ -13,7 +8,6 @@ namespace ReservationApplicationMolveno
 {
     public partial class ReservationForm : Form
     {
-
         public ReservationForm()
         {
             InitializeComponent();
@@ -71,11 +65,15 @@ namespace ReservationApplicationMolveno
                 dtp_arrivingDate.Value.Month,                       // Month, int                       5
                 dtp_arrivingDate.Value.Day,                         // Day, int                         6
                 Convert.ToInt32(inputBeginTimeHour.Text),           // Hour, int                        7
-                Convert.ToInt32(inputBeginTimeMinute.Text)          // Minute, int                      8
-            };
-
+                Convert.ToInt32(inputBeginTimeMinute.Text),         // Minute, int                      8
+                inputCommentGuest.Text,                             // User comments, string            9
+                inputOptionHidePrices.Checked                       // hide prices, bool                10
+        };
             return FormData;
         }
+
+
+        
 
         private void bt_ViewReservation_Click(object sender, EventArgs e)
         {
@@ -106,7 +104,9 @@ namespace ReservationApplicationMolveno
                 RVM.PartySize.ToString(),
                 RVM.TableViewModel.ID.ToString(),
                 RVM.StartTime.ToString(),
-                RVM.EndTime.ToString()
+                RVM.EndTime.ToString(),
+                RVM.HidePrices.ToString(),
+                RVM.GuestComments.ToString()
             };
                 
 
