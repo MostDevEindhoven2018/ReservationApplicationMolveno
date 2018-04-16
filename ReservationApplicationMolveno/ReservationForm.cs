@@ -63,7 +63,7 @@ namespace ReservationApplicationMolveno
             // No conversions are done yet, this just collects the raw data.
             List<Object> FormData = new List<object>
             {
-                inputNameGuest.Text,                                // Name of Guest, string            0 
+                txt_NameGuest.Text,                                // Name of Guest, string            0 
                 inputGuestPhoneNumber.Text,                         // PhoneNum of Guest, string        1
                 inputGuestEmail.Text,                               // EmailAddress of Guest, string    2
                 Convert.ToInt32(nud_numberOfGuests.Value),          // Party size, int                  3
@@ -126,6 +126,38 @@ namespace ReservationApplicationMolveno
 
 
             RVF.Show();
+        }
+
+        private void dtp_arrivingDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtp_arrivingDate.Value.Date < DateTime.Today)
+            {
+                MessageBox.Show("The date you have selected is in the past");
+                dtp_arrivingDate.Value = DateTime.Now;
+            }
+        }
+
+        private void inputNameGuest_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_NameGuest_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Numbers are not allowed.Please use letters.");
+            }
+        }
+
+        private void inputGuestPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Characters are not allowed.Please use numbers.");
+            }
         }
     }
 }
