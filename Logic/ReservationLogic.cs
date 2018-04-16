@@ -48,7 +48,7 @@ namespace Logic
             ReservationModel prelimRM = CreateReservationModel(rawReservationData);
             // Below here, do all kinds of fancy pantsy tests and checks and such
 
-
+            
 
             // If and when all is well, convert the ReservationModel to a Reservation, and send it to the database
             Reservation FinalisedReservation = CreateReservation(prelimRM);
