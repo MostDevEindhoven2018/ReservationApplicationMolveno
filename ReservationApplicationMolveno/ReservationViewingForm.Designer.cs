@@ -84,7 +84,7 @@
             // lbl_EndTime
             // 
             this.lbl_EndTime.AutoSize = true;
-            this.lbl_EndTime.Location = new System.Drawing.Point(376, 38);
+            this.lbl_EndTime.Location = new System.Drawing.Point(446, 38);
             this.lbl_EndTime.Name = "lbl_EndTime";
             this.lbl_EndTime.Size = new System.Drawing.Size(68, 17);
             this.lbl_EndTime.TabIndex = 5;
@@ -94,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 353);
+            this.ClientSize = new System.Drawing.Size(856, 353);
             this.Controls.Add(this.lbl_EndTime);
             this.Controls.Add(this.lbl_arrivalTime);
             this.Controls.Add(this.lbl_tableNum);

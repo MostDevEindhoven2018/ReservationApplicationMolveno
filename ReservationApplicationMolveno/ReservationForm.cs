@@ -107,23 +107,23 @@ namespace ReservationApplicationMolveno
                 RVM.TableViewModel.ID.ToString(),
                 RVM.StartTime.ToString(),
                 RVM.EndTime.ToString()
-                };
+            };
+                
 
                 for(int i = 0; i < ReservationInfo.Count; i++)
                 {
-                    Label namelabel = new Label();
-                    namelabel.Location = new Point(x, y);
-                    namelabel.Text = ReservationInfo[i];
-                    RVF.Controls.Add(namelabel);
+                    x = RVF.HeaderLabels[i + 1].Location.X;
 
-                    x += RVF.HeaderLabels[i+1].Width;
+                    Label ResLabel = new Label();
+                    ResLabel.Location = new Point(x, y);
+                    ResLabel.AutoSize = true;
+                    ResLabel.Text = ReservationInfo[i];
+                    RVF.Controls.Add(ResLabel);
                 }
 
+                x = 12;
                 y += 20;
             }
-
-
-
 
             RVF.Show();
         }

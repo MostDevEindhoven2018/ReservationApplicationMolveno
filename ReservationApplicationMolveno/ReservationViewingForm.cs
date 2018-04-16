@@ -18,6 +18,8 @@ namespace ReservationApplicationMolveno
         {
             InitializeComponent();
 
+            
+
             HeaderLabels = new List<Control>
             {
                 lbl_header,
@@ -26,6 +28,8 @@ namespace ReservationApplicationMolveno
                 lbl_tableNum,
                 lbl_arrivalTime,
                 lbl_EndTime
+                
+
             };
         }
     }

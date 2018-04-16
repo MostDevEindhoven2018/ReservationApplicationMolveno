@@ -19,7 +19,6 @@ namespace Logic
             if (_instance == null)
             {
                 _instance = new ReservationLogic();
-
             }
 
             return _instance;
