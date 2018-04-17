@@ -16,7 +16,7 @@ namespace ReservationApplicationMolveno
         public void checks()
         {
             //Checking the input entered by the user or checking if nothing was entered
-            if (txt_NameGuest.Text == "" && nud_numberOfGuests.Value == 0 && (txt_GuestPhonenumber.Text == "") && (txt_GuestEmail.Text == "") && dtp_arrivingDate.Value < DateTime.Today)
+            if (txt_NameGuest.Text == "" && nud_numberOfGuests.Value == 0 && (txt_GuestPhonenumber.Text == "") && (txt_GuestEmail.Text == "") && dtp_arrivingDate.Value < DateTime.Today )
             {
                 MessageBox.Show("You have not entered any information.Please enter your name,number of guests,arriving time,date and a phonenumber of email");
 
@@ -40,7 +40,7 @@ namespace ReservationApplicationMolveno
 
             else if (dtp_arrivingDate.Value < DateTime.Today)
             {
-                MessageBox.Show("You have not selected a date.Please selected one!");
+                MessageBox.Show("You have not selected a date.Please select one!");
             }
 
             else if (cmb_Hours.Text == "" && cmb_Minutes.Text == "")
