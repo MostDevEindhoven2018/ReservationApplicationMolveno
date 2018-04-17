@@ -38,13 +38,13 @@
             this.labelCommentsGuest = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txt_NameGuest = new System.Windows.Forms.TextBox();
-            this.inputGuestPhoneNumber = new System.Windows.Forms.TextBox();
-            this.inputGuestEmail = new System.Windows.Forms.TextBox();
+            this.txt_GuestPhonenumber = new System.Windows.Forms.TextBox();
+            this.txt_GuestEmail = new System.Windows.Forms.TextBox();
             this.inputCommentGuest = new System.Windows.Forms.TextBox();
             this.inputOptionHidePrices = new System.Windows.Forms.CheckBox();
             this.labelOptionHidePrices = new System.Windows.Forms.TextBox();
-            this.inputBeginTimeHour = new System.Windows.Forms.ComboBox();
-            this.inputBeginTimeMinute = new System.Windows.Forms.ComboBox();
+            this.cmb_Hours = new System.Windows.Forms.ComboBox();
+            this.cmb_Minutes = new System.Windows.Forms.ComboBox();
             this.labelCommentOwner = new System.Windows.Forms.TextBox();
             this.dtp_arrivingDate = new System.Windows.Forms.DateTimePicker();
             this.nud_numberOfGuests = new System.Windows.Forms.NumericUpDown();
@@ -147,24 +147,24 @@
             this.txt_NameGuest.TextChanged += new System.EventHandler(this.inputNameGuest_TextChanged);
             this.txt_NameGuest.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_NameGuest_KeyPress);
             // 
-            // inputGuestPhoneNumber
+            // txt_GuestPhonenumber
             // 
-            this.inputGuestPhoneNumber.Location = new System.Drawing.Point(231, 222);
-            this.inputGuestPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.inputGuestPhoneNumber.MaxLength = 12;
-            this.inputGuestPhoneNumber.Name = "inputGuestPhoneNumber";
-            this.inputGuestPhoneNumber.Size = new System.Drawing.Size(130, 26);
-            this.inputGuestPhoneNumber.TabIndex = 10;
-            this.inputGuestPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputGuestPhoneNumber_KeyPress);
+            this.txt_GuestPhonenumber.Location = new System.Drawing.Point(231, 222);
+            this.txt_GuestPhonenumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_GuestPhonenumber.MaxLength = 12;
+            this.txt_GuestPhonenumber.Name = "txt_GuestPhonenumber";
+            this.txt_GuestPhonenumber.Size = new System.Drawing.Size(130, 26);
+            this.txt_GuestPhonenumber.TabIndex = 10;
+            this.txt_GuestPhonenumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputGuestPhoneNumber_KeyPress);
             // 
-            // inputGuestEmail
+            // txt_GuestEmail
             // 
-            this.inputGuestEmail.Location = new System.Drawing.Point(231, 259);
-            this.inputGuestEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.inputGuestEmail.MaxLength = 40;
-            this.inputGuestEmail.Name = "inputGuestEmail";
-            this.inputGuestEmail.Size = new System.Drawing.Size(130, 26);
-            this.inputGuestEmail.TabIndex = 11;
+            this.txt_GuestEmail.Location = new System.Drawing.Point(231, 259);
+            this.txt_GuestEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_GuestEmail.MaxLength = 40;
+            this.txt_GuestEmail.Name = "txt_GuestEmail";
+            this.txt_GuestEmail.Size = new System.Drawing.Size(130, 26);
+            this.txt_GuestEmail.TabIndex = 11;
             // 
             // inputCommentGuest
             // 
@@ -198,29 +198,45 @@
             this.labelOptionHidePrices.TabIndex = 15;
             this.labelOptionHidePrices.Text = "Would you like to hide the prices from the menu?";
             // 
-            // inputBeginTimeHour
+            // cmb_Hours
             // 
-            this.inputBeginTimeHour.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.inputBeginTimeHour.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.inputBeginTimeHour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.inputBeginTimeHour.FormattingEnabled = true;
-            this.inputBeginTimeHour.Location = new System.Drawing.Point(231, 186);
-            this.inputBeginTimeHour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.inputBeginTimeHour.Name = "inputBeginTimeHour";
-            this.inputBeginTimeHour.Size = new System.Drawing.Size(55, 28);
-            this.inputBeginTimeHour.TabIndex = 17;
+            this.cmb_Hours.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmb_Hours.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_Hours.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Hours.FormattingEnabled = true;
+            this.cmb_Hours.Items.AddRange(new object[] {
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21"});
+            this.cmb_Hours.Location = new System.Drawing.Point(231, 186);
+            this.cmb_Hours.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmb_Hours.Name = "cmb_Hours";
+            this.cmb_Hours.Size = new System.Drawing.Size(55, 28);
+            this.cmb_Hours.TabIndex = 17;
             // 
-            // inputBeginTimeMinute
+            // cmb_Minutes
             // 
-            this.inputBeginTimeMinute.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.inputBeginTimeMinute.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.inputBeginTimeMinute.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.inputBeginTimeMinute.FormattingEnabled = true;
-            this.inputBeginTimeMinute.Location = new System.Drawing.Point(306, 186);
-            this.inputBeginTimeMinute.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.inputBeginTimeMinute.Name = "inputBeginTimeMinute";
-            this.inputBeginTimeMinute.Size = new System.Drawing.Size(55, 28);
-            this.inputBeginTimeMinute.TabIndex = 18;
+            this.cmb_Minutes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmb_Minutes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_Minutes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Minutes.FormattingEnabled = true;
+            this.cmb_Minutes.Items.AddRange(new object[] {
+            "00",
+            "15",
+            "30",
+            "45"});
+            this.cmb_Minutes.Location = new System.Drawing.Point(306, 186);
+            this.cmb_Minutes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmb_Minutes.Name = "cmb_Minutes";
+            this.cmb_Minutes.Size = new System.Drawing.Size(55, 28);
+            this.cmb_Minutes.TabIndex = 18;
             // 
             // labelCommentOwner
             // 
@@ -291,13 +307,13 @@
             this.Controls.Add(this.nud_numberOfGuests);
             this.Controls.Add(this.dtp_arrivingDate);
             this.Controls.Add(this.labelCommentOwner);
-            this.Controls.Add(this.inputBeginTimeMinute);
-            this.Controls.Add(this.inputBeginTimeHour);
+            this.Controls.Add(this.cmb_Minutes);
+            this.Controls.Add(this.cmb_Hours);
             this.Controls.Add(this.labelOptionHidePrices);
             this.Controls.Add(this.inputOptionHidePrices);
             this.Controls.Add(this.inputCommentGuest);
-            this.Controls.Add(this.inputGuestEmail);
-            this.Controls.Add(this.inputGuestPhoneNumber);
+            this.Controls.Add(this.txt_GuestEmail);
+            this.Controls.Add(this.txt_GuestPhonenumber);
             this.Controls.Add(this.txt_NameGuest);
             this.Controls.Add(this.labelCommentsGuest);
             this.Controls.Add(this.labelGuestEmail);
@@ -326,13 +342,13 @@
         private System.Windows.Forms.TextBox labelCommentsGuest;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox txt_NameGuest;
-        private System.Windows.Forms.TextBox inputGuestPhoneNumber;
-        private System.Windows.Forms.TextBox inputGuestEmail;
+        private System.Windows.Forms.TextBox txt_GuestPhonenumber;
+        private System.Windows.Forms.TextBox txt_GuestEmail;
         private System.Windows.Forms.TextBox inputCommentGuest;
         private System.Windows.Forms.CheckBox inputOptionHidePrices;
         private System.Windows.Forms.TextBox labelOptionHidePrices;
-        private System.Windows.Forms.ComboBox inputBeginTimeHour;
-        private System.Windows.Forms.ComboBox inputBeginTimeMinute;
+        private System.Windows.Forms.ComboBox cmb_Hours;
+        private System.Windows.Forms.ComboBox cmb_Minutes;
         private System.Windows.Forms.TextBox labelCommentOwner;
         private System.Windows.Forms.DateTimePicker dtp_arrivingDate;
         private System.Windows.Forms.NumericUpDown nud_numberOfGuests;

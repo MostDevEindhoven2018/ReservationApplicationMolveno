@@ -13,6 +13,43 @@ namespace ReservationApplicationMolveno
 {
     public partial class ReservationForm : Form
     {
+        public void checks()
+        {
+            //Checking the input entered by the user or checking if nothing was entered
+            if (txt_NameGuest.Text == "" && nud_numberOfGuests.Value == 0 && (txt_GuestPhonenumber.Text == "") && (txt_GuestEmail.Text == "") && dtp_arrivingDate.Value < DateTime.Today)
+            {
+                MessageBox.Show("You have not entered any information.Please enter your name,number of guests,arriving time,date and a phonenumber of email");
+
+            }
+            
+            else if (txt_NameGuest.Text == "")
+            {
+                MessageBox.Show("Please enter your name in order to create the reservation.");
+
+            }
+
+            else if (nud_numberOfGuests.Value == 0 || nud_numberOfGuests.Text == "")
+            {
+                MessageBox.Show("Please enter the number of guests that will be attending this reservation");
+            }
+
+            else if ((txt_GuestPhonenumber.Text == "") && (txt_GuestEmail.Text == ""))
+            {
+                MessageBox.Show("You have not entered any communication contact (phone no/email.Please enter either one of those.");
+            }
+
+            else if (dtp_arrivingDate.Value < DateTime.Today)
+            {
+                MessageBox.Show("You have not selected a date.Please selected one!");
+            }
+
+            else if (cmb_Hours.Text == "" && cmb_Minutes.Text == "")
+            {
+                MessageBox.Show("Please enter the time you will be arriving");
+            }
+
+
+        }
 
         public ReservationForm()
         {
@@ -21,32 +58,9 @@ namespace ReservationApplicationMolveno
             ReservationLogic _ReservationLogic = ReservationLogic.Instance();
             _ReservationLogic.CreateDB();
 
+            cmb_Hours.SelectedIndex = 0;
+            cmb_Minutes.SelectedIndex = 0;
 
-            // Adds 0 till 23 hours to the combobox with the reservation time
-            for (int i = 0; i <= 23; i++)
-            {
-                if (i < 10)
-                {
-                    inputBeginTimeHour.Items.Add("0" + i);
-                }
-                else
-                {
-                    inputBeginTimeHour.Items.Add(i);
-                }
-
-            }
-
-            for (int i = 0; i < 60; i += 15)
-            {
-                if (i == 0)
-                {
-                    inputBeginTimeMinute.Items.Add("00");
-                }
-                else
-                {
-                    inputBeginTimeMinute.Items.Add(i);
-                }
-            }
         }
 
         private void bt_reserve_Click(object sender, EventArgs e)
@@ -59,19 +73,21 @@ namespace ReservationApplicationMolveno
 
         List<Object> CollectData()
         {
+            checks();
+
             // Collect all data from the form and put it into a list of objects. 
             // No conversions are done yet, this just collects the raw data.
             List<Object> FormData = new List<object>
             {
                 txt_NameGuest.Text,                                // Name of Guest, string            0 
-                inputGuestPhoneNumber.Text,                         // PhoneNum of Guest, string        1
-                inputGuestEmail.Text,                               // EmailAddress of Guest, string    2
+                txt_GuestPhonenumber.Text,                         // PhoneNum of Guest, string        1
+                txt_GuestEmail.Text,                               // EmailAddress of Guest, string    2
                 Convert.ToInt32(nud_numberOfGuests.Value),          // Party size, int                  3
                 dtp_arrivingDate.Value.Year,                        // Year, int                        4
                 dtp_arrivingDate.Value.Month,                       // Month, int                       5
                 dtp_arrivingDate.Value.Day,                         // Day, int                         6
-                Convert.ToInt32(inputBeginTimeHour.Text),           // Hour, int                        7
-                Convert.ToInt32(inputBeginTimeMinute.Text)          // Minute, int                      8
+                Convert.ToInt32(cmb_Hours.Text),           // Hour, int                        7
+                Convert.ToInt32(cmb_Minutes.Text)          // Minute, int                      8
             };
 
             return FormData;
@@ -101,6 +117,8 @@ namespace ReservationApplicationMolveno
             // For each reservation, create a list of every string that we want to present, then fill the labels with that info.
             foreach (ReservationViewModel RVM in AllViewModels)
             {
+               
+
                 List<string> ReservationInfo = new List<string>
                 {RVM.GuestViewModel.Name,
                 RVM.PartySize.ToString(),
